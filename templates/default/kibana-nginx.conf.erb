@@ -7,6 +7,9 @@ server {
   location / {
     root  <%= @kibana_dir %>;
     index  index.html  index.htm;
+
+    auth_basic "Restricted";
+    auth_basic_user_file /etc/nginx/conf.d/kibana.htpasswd;
   }
 
 location ~ ^/_aliases$ {

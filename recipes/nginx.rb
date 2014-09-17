@@ -22,6 +22,15 @@ node.set['nginx']['install_method'] = node['kibana']['nginx']['install_method']
 
 include_recipe 'nginx'
 
+# put the htpasswd file with kibana stuff
+template "#{node['nginx']['dir']}/conf.d/kibana.htpasswd" do
+  source "kibana.htpasswd.erb"
+  variables(
+    kibana_htpasswd_user: node['kibana']['htpasswd_user'],
+    kibana_htpasswd: node['kibana']['htpasswd']
+  )
+end
+
 template "#{node['nginx']['dir']}/sites-available/kibana" do
   source node['kibana']['nginx']['template']
   cookbook node['kibana']['nginx']['template_cookbook']

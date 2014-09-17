@@ -1,5 +1,8 @@
 kibana Cookbook
 ===============
+This is forked from https://github.com/lusis/chef-kibana version 1.3.0
+I loved everything about the cookbook, except it didn't password protect the nginx site.  So to be lazy and quick, I forked this cookbook
+version and added the ability.
 
 A stand-alone cookbook for Kibana3.
 
